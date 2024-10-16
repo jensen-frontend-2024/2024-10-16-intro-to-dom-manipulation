@@ -49,6 +49,29 @@ console.log(h2);
 ```
 [Back to top](#2024-10-16-intro-to-dom-manipulation)
 
+#### `element.innerHTML`
+
+`innerHTML` is a value that we can get and set. We want to set the innerHTML of our h2-tag that we have created. This property also accepts html as multi-line string which we can use in order to make our html crating process easier and faster. A multi-line string is created with backtics.
+
+```js
+const div = `
+<div class="container">
+    This the div
+    <p class="paragraph">This is a p-tag</p>
+</div>
+`
+```
+
+Now let's add this to the DOM by using an existing element and updating its innerHTML.
+
+```js
+const section = document.createElement("section")
+
+section.innerHTML = div;
+```
+
+[Back to top](#2024-10-16-intro-to-dom-manipulation)
+
 ### Add elements to DOM
 
 Just beacause we create an element with `createElement` doesn't mean that we can see it straight away. The element exisist but it's not visisble. In order to make it visible we need to append it somewhere. And this somewhere is alwyas another element. And the one element that always exists is the `<body></body>`-element. One method we can use is the `appendChild` method.
@@ -102,3 +125,44 @@ console.log(classes);
 
 [Back to top](#2024-10-16-intro-to-dom-manipulation)
 
+### Get/retrieve elements from the DOM
+
+#### `element.children` 
+
+This property gets or sets the children of a HTML element. The type of the value is a HTMLCollection which is a kind of array that has its own methods and properties.
+
+```js
+const sec = document.querySelector('.sec');
+
+console.log(sec.children);
+```
+
+If we want to, we could loop through this children object in order to see in more detail what we have there.
+
+```js
+const children = sec.children;
+
+for (const el of children) {
+    console.log(el)
+}
+```
+
+#### `element.firstElementChild`
+
+This property returns the first child of the parent element.
+
+```js
+const firstChild = sec.firstElementChild;
+
+console.log(firstChild);
+```
+
+#### `element.lastElementChild`
+
+This property returns the last child of the parent element.
+
+```js
+const lastChild = sec.lastElementChild;
+
+console.log(lastChild);
+```
